@@ -53,3 +53,23 @@ bool GOPressed() {
 bool STOPPressed() {
   return digitalRead(STOP) == LOW;
 }
+
+// Motors
+void motorWriteR(double speed) {
+  if (speed > 0) {
+    analogWrite(PWM_R, (1-speed)*10000.0f);
+    digitalWrite(DIR_R, LOW);
+  } else {
+    analogWrite(PWM_R, (1+speed)*10000.0f);
+    digitalWrite(DIR_R, HIGH);
+  }
+}
+void motorWriteL(double speed) {
+  if (speed > 0) {
+    analogWrite(PWM_L, (1-speed)*10000.0f);
+    digitalWrite(DIR_L, HIGH);
+  } else {
+    analogWrite(PWM_L, (1+speed)*10000.0f);
+    digitalWrite(DIR_L, LOW);
+  }
+}
