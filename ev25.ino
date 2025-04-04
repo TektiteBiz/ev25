@@ -23,10 +23,15 @@ void loop() {
   if (millis() - lastPrint > 50) {
     Serial.print("gyro:");
     Serial.print(readGyro()*RAD_TO_DEG);
+
     Serial.print(",angleL:");
     Serial.print(readAngleL());
+
     Serial.print(",angleR:");
-    Serial.println(readAngleR());
+    Serial.print(readAngleR());
+
+    Serial.print(",batteryVoltage:");
+    Serial.println(batteryVoltage());
     lastPrint = millis();
   }
 }
