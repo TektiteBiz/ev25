@@ -2,9 +2,9 @@
 #include <MT6701.h>
 #include <SPI.h>
 
-#define CS_L 17
+#define CS_L 13
 #define CS_R 20
-#define CS_IMU 21
+#define CS_IMU 17
 #define BATTERY A0
 
 ICM20689 imu(SPI, CS_IMU);
@@ -23,6 +23,7 @@ void displayError(String error) {
 
 void setupSensing() {
   SPI.begin();
+  SPI1.begin();
 
   // IMU
   int status = imu.begin();
